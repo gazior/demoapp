@@ -1,13 +1,13 @@
 services:
-#  mysql:
-#    image: 'mysql:latest'
-#    environment:
-#      - 'MYSQL_DATABASE=mydatabase'
-#      - 'MYSQL_PASSWORD=secret'
-#      - 'MYSQL_ROOT_PASSWORD=verysecret'
-#      - 'MYSQL_USER=myuser'
-#    ports:
-#      - '3306'
+  #  mysql:
+  #    image: 'mysql:latest'
+  #    environment:
+  #      - 'MYSQL_DATABASE=mydatabase'
+  #      - 'MYSQL_PASSWORD=secret'
+  #      - 'MYSQL_ROOT_PASSWORD=verysecret'
+  #      - 'MYSQL_USER=myuser'
+  #    ports:
+  #      - '3306'
   sqlserver:
     image: 'mcr.microsoft.com/mssql/server:latest'
     environment:
@@ -16,3 +16,31 @@ services:
       - 'MSSQL_SA_PASSWORD=verYs3cret'
     ports:
       - '1433:1433'
+#  mysql:
+#    container_name: some-mysql
+#    image: mysql:5.7
+#    restart: unless-stopped
+#    environment:
+#      MYSQL_ROOT_PASSWORD: admin
+#      MYSQL_DATABASE: prestashop
+#    ports:
+#      - 3306:3306
+#    networks:
+#      - prestashop_network
+#  prestashop:
+#    container_name: prestashop
+#    image: prestashop/prestashop:latest
+#    # restart: unless-stopped
+#    depends_on:
+#      - mysql
+#    ports:
+#      - 8080:80
+#    environment:
+#      DB_SERVER: some-mysql
+#      DB_NAME: prestashop
+#      DB_USER: root
+#      DB_PASSWD: admin
+#    networks:
+#      - prestashop_network
+#networks:
+#  prestashop_network:
